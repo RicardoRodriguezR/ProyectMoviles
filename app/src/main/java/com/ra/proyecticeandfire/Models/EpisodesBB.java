@@ -2,7 +2,7 @@ package com.ra.proyecticeandfire.Models;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Animes {
+public class EpisodesBB {
 
     @SerializedName("title")
     private String  AnimeTitle;

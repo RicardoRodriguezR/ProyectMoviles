@@ -1,6 +1,5 @@
 package com.ra.proyecticeandfire.ApiManeger;
 
-import com.ra.proyecticeandfire.Models.Animes;
 import com.ra.proyecticeandfire.Models.Books;
 import com.ra.proyecticeandfire.Models.Characters;
 import com.ra.proyecticeandfire.Models.Houses;

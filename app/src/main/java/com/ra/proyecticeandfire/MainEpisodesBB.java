@@ -6,9 +6,9 @@ import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.ra.proyecticeandfire.Adapter.AnimeAdapter;
-import com.ra.proyecticeandfire.ApiManeger.RetrofitClientAnime;
-import com.ra.proyecticeandfire.Models.Animes;
+import com.ra.proyecticeandfire.Adapter.EpisodesBBAdapter;
+import com.ra.proyecticeandfire.ApiManeger.RetrofitClientEpisodesBB;
+import com.ra.proyecticeandfire.Models.EpisodesBB;
 
 import java.util.ArrayList;
 
@@ -16,15 +16,15 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainAnimes extends AppCompatActivity {
+public class MainEpisodesBB extends AppCompatActivity {
 
     ListView listAnime;
-    ArrayList<Animes> myAnimes;
+    ArrayList<EpisodesBB> myAnimes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_animes);
+        setContentView(R.layout.activity_main_episodesbb);
 
         listAnime = findViewById(R.id.ListAnimes);
 
@@ -32,19 +32,19 @@ public class MainAnimes extends AppCompatActivity {
     }
 
     private void getFromInternetAnimes() {
-        Call<ArrayList<Animes>> call = RetrofitClientAnime.getInstance().getMyApi().getAnimes();
-        call.enqueue(new Callback<ArrayList<Animes>>(){
+        Call<ArrayList<EpisodesBB>> call = RetrofitClientEpisodesBB.getInstance().getMyApi().getAnimes();
+        call.enqueue(new Callback<ArrayList<EpisodesBB>>(){
 
 
             @Override
-            public void onResponse(Call<ArrayList<Animes>> call, Response<ArrayList<Animes>> response) {
+            public void onResponse(Call<ArrayList<EpisodesBB>> call, Response<ArrayList<EpisodesBB>> response) {
                 myAnimes = response.body();
-                AnimeAdapter adapter = new AnimeAdapter(MainAnimes.this, myAnimes);
+                EpisodesBBAdapter adapter = new EpisodesBBAdapter(MainEpisodesBB.this, myAnimes);
                 listAnime.setAdapter(adapter);
             }
 
             @Override
-            public void onFailure(Call<ArrayList<Animes>> call, Throwable t) {
+            public void onFailure(Call<ArrayList<EpisodesBB>> call, Throwable t) {
                 Toast.makeText(getApplicationContext(),"Ocurrio un error", Toast.LENGTH_SHORT).show();
             }
         });

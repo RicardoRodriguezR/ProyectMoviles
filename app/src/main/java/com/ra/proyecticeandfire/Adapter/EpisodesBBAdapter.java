@@ -8,19 +8,17 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.ra.proyecticeandfire.Models.Animes;
-import com.ra.proyecticeandfire.Models.Books;
+import com.ra.proyecticeandfire.Models.EpisodesBB;
 import com.ra.proyecticeandfire.R;
 
 import java.util.List;
-import java.util.zip.Inflater;
 
-public class AnimeAdapter extends BaseAdapter {
+public class EpisodesBBAdapter extends BaseAdapter {
 
     protected Activity activity;
-    protected List<Animes> myAnimes;
+    protected List<EpisodesBB> myAnimes;
 
-    public AnimeAdapter(Activity activity, List<Animes> myAnimes) {
+    public EpisodesBBAdapter(Activity activity, List<EpisodesBB> myAnimes) {
         this.activity = activity;
         this.myAnimes = myAnimes;
     }
@@ -46,12 +44,12 @@ public class AnimeAdapter extends BaseAdapter {
         View v = convertView;
         if (convertView == null){
             LayoutInflater inf = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            v = inf.inflate(R.layout.animeitem, null);
+            v = inf.inflate(R.layout.episodesbbitem, null);
         }
 
-        Animes animes = myAnimes.get(position);
+        EpisodesBB episodesBB = myAnimes.get(position);
         TextView nameAnime = v.findViewById(R.id.txtAnimeName);
-        nameAnime.setText(animes.getAnimeTitle());
+        nameAnime.setText(episodesBB.getAnimeTitle());
 
         return v;
     }

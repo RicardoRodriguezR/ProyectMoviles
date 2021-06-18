@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(CharactersIntent);
         }
         if (v.getId()==R.id.btnAnimes){
-            Intent AnimesIntent = new Intent(this, MainAnimes.class);
+            Intent AnimesIntent = new Intent(this, MainEpisodesBB.class);
             startActivity(AnimesIntent);
         }
     }
